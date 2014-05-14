@@ -1,0 +1,5 @@
+/Systembolaget/obj/Debug
+/Systembolaget/Bin
+*.suo
+*.db
+*.user
