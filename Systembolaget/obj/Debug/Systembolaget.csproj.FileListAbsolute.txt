@@ -14,3 +14,5 @@ c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj
 c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.csproj.GenerateResource.Cache
 c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.exe
 c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.pdb
+C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\wineBottle.baml
+C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\wineBottle.g.cs

@@ -5,14 +5,14 @@
     Title="Systembolaget"
     >
   <Grid>
-        <s:TagVisualizer VisualizationAdded="OnVisualizationAdded" Grid.RowSpan="1">
+        <s:TagVisualizer>
             <s:TagVisualizer.Definitions>
                 <s:TagVisualizationDefinition Source="wineBottle.xaml"
                                               PhysicalCenterOffsetFromTag="0,3"
                                               LostTagTimeout="1000"
                                               MaxCount="5"
                                               TagRemovedBehavior="Fade"
-                                              Value="0x3"
+                                              Value="0x3">
                 </s:TagVisualizationDefinition>
             </s:TagVisualizer.Definitions>
         </s:TagVisualizer>
