@@ -12,9 +12,10 @@
                                               LostTagTimeout="1000"
                                               MaxCount="5"
                                               TagRemovedBehavior="Fade"
-                                              Value="0x3">
+                                              Value="0x7">
                 </s:TagVisualizationDefinition>
             </s:TagVisualizer.Definitions>
+        	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
         </s:TagVisualizer>
     </Grid>
 </s:SurfaceWindow>
