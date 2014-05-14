@@ -3,12 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Loaded="wineBottle_Loaded">
-    <Grid Width="200" Height="200">
+    <Grid Width="400" Height="260">
     	<Grid.RowDefinitions>
     		<RowDefinition Height="0.6*"/>
-    		<RowDefinition Height="0.4*"/>
     	</Grid.RowDefinitions>
-    	<Rectangle Fill="#FF2121C8" Margin="26.415,28.679,24.528,20.377" Grid.RowSpan="1" Stroke="Black"/>
+    	<Image Margin="0,-259,4,0" Source="Resources/singleTable.png" Stretch="Fill" Height="258" VerticalAlignment="Top"/>
         
     </Grid>
 </s:TagVisualization>
