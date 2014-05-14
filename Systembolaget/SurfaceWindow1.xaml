@@ -8,11 +8,19 @@
         <s:TagVisualizer>
             <s:TagVisualizer.Definitions>
                 <s:TagVisualizationDefinition Source="wineBottle.xaml"
-                                              PhysicalCenterOffsetFromTag="0,3"
+                                              PhysicalCenterOffsetFromTag="0,1"
                                               LostTagTimeout="1000"
                                               MaxCount="5"
                                               TagRemovedBehavior="Fade"
                                               Value="0x7">
+                </s:TagVisualizationDefinition>
+                
+                <s:TagVisualizationDefinition Source="wineBottle2.xaml"
+                                              PhysicalCenterOffsetFromTag="0,1"
+                                              LostTagTimeout="1000"
+                                              MaxCount="5"
+                                              TagRemovedBehavior="Fade"
+                                              Value="0x3">
                 </s:TagVisualizationDefinition>
             </s:TagVisualizer.Definitions>
         	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>

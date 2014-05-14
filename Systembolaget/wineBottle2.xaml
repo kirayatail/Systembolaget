@@ -1,0 +1,14 @@
+﻿<s:TagVisualization x:Class="Systembolaget.wineBottle2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    Loaded="wineBottle2_Loaded">
+    <Grid Width="400" Height="260">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.6*"/>
+    	</Grid.RowDefinitions>
+    	<Image Margin="0,-259,4,0" Source="Resources/singleTable.png" Stretch="Fill" Height="258" VerticalAlignment="Top"/>
+    	<Rectangle Fill="#FFF4F4F5" Height="53" Margin="144,-147,183,0" Stroke="Black" VerticalAlignment="Top"/>
+        
+    </Grid>
+</s:TagVisualization>

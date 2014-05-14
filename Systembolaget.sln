@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systembolaget", "Systembolaget\Systembolaget.csproj", "{DC47BD79-C2E8-4F4F-9914-4C54575A28FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagVisualizerEvents", "..\..\..\..\Desktop\Surface Code Samples\SDKSamples\WPF\TagVisualizerEvents\TagVisualizerEvents.csproj", "{94919648-ACAC-4E13-817C-5F41B9123C77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{DC47BD79-C2E8-4F4F-9914-4C54575A28FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC47BD79-C2E8-4F4F-9914-4C54575A28FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC47BD79-C2E8-4F4F-9914-4C54575A28FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94919648-ACAC-4E13-817C-5F41B9123C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94919648-ACAC-4E13-817C-5F41B9123C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94919648-ACAC-4E13-817C-5F41B9123C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94919648-ACAC-4E13-817C-5F41B9123C77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
