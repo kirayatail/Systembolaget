@@ -1,0 +1,16 @@
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\bin\Debug\Resources\icon.png
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\bin\Debug\Systembolaget.xml
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\bin\Debug\Systembolaget.exe
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\bin\Debug\Systembolaget.pdb
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.csprojResolveAssemblyReference.cache
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\SurfaceWindow1.baml
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\App.baml
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\SurfaceWindow1.g.cs
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\App.g.cs
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget_Content.g.cs
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget_MarkupCompile.cache
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.g.resources
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.Properties.Resources.resources
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.csproj.GenerateResource.Cache
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.exe
+c:\users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget.pdb
