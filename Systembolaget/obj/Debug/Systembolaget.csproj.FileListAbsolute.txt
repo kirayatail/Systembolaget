@@ -18,3 +18,5 @@ C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj
 C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\wineBottle.g.cs
 C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\wineBottle2.baml
 C:\Users\'\Documents\Visual Studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\wineBottle2.g.cs
+C:\Users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\'\documents\visual studio 2010\Projects\Systembolaget\Systembolaget\obj\Debug\Systembolaget_MarkupCompile.lref

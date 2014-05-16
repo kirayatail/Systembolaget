@@ -30,6 +30,7 @@ namespace Systembolaget
         private void wineBottle_Loaded(object sender, RoutedEventArgs e)
         {
             //TODO: customize wineBottle's UI based on this.VisualizedTag here
+			
         }
     }
 }

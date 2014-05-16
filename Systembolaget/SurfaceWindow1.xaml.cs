@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +28,10 @@ namespace Systembolaget
         /// </summary>
         public SurfaceWindow1()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             // Add handlers for window availability events
+			
             AddWindowAvailabilityHandlers();
         }
 
@@ -98,6 +99,14 @@ namespace Systembolaget
         private void OnWindowUnavailable(object sender, EventArgs e)
         {
             //TODO: disable audio, animations here
+        }
+
+        private void OnVisualizationEnter(object sender, TagVisualizationEnterLeaveEventArgs e)
+        {
+        }
+
+        private void OnVisualizationLeave(object sender, TagVisualizationEnterLeaveEventArgs e)
+        {
         }
     }
 }

@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reusable Classes\AncestryChain.cs" />
+    <Compile Include="Reusable Classes\TagVisualizationEnterLeaveEventArgs.cs" />
+    <Compile Include="Reusable Classes\TagVisualizerEvents.cs" />
+    <Compile Include="Reusable Classes\TagVisualizerSynchronizationMode.cs" />
     <Compile Include="wineBottle2.xaml.cs">
       <DependentUpon>wineBottle2.xaml</DependentUpon>
     </Compile>
