@@ -5,7 +5,10 @@
     Title="Systembolaget"
     >
   <Grid>
-        <s:TagVisualizer>
+        <s:TagVisualizer
+            TouchDown="tagUpdate"
+            TouchMove="tagUpdate"
+            TouchUp="tagRemoved">
             <s:TagVisualizer.Definitions>
                 <s:TagVisualizationDefinition Source="wineBottle.xaml"
                                               PhysicalCenterOffsetFromTag="0,1"

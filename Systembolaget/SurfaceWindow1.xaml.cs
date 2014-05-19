@@ -23,13 +23,23 @@ namespace Systembolaget
     /// </summary>
     public partial class SurfaceWindow1 : SurfaceWindow
     {
+
+        Dictionary<Byte,Point> tagDict;
+        Dictionary<String, object> compViz;
+        Dictionary<Byte, object> singleViz;
+        
+        // Limit for making comparison
+        float distanceLimit = 50.0f;
+
         /// <summary>
         /// Default constructor.
         /// </summary>
         public SurfaceWindow1()
         {
             InitializeComponent();
-
+            tagDict = new Dictionary<byte,Point>();
+            compViz = new Dictionary<string, object>();
+            singleViz = new Dictionary<byte, object>();
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
         }
@@ -98,6 +108,55 @@ namespace Systembolaget
         private void OnWindowUnavailable(object sender, EventArgs e)
         {
             //TODO: disable audio, animations here
+        }
+
+        private void tagUpdate(object sender, TouchEventArgs args)
+        {
+            byte key = (byte)args.TouchDevice.GetTagData().Value;
+            Point value = new Point();
+            value = args.TouchDevice.GetPosition(this);
+            if (this.tagDict.ContainsKey(key))
+            {
+                tagDict[key] = value;
+            }
+            else
+            {
+                tagDict.Add(key, value);
+            }
+
+
+        }
+
+        private void tagRemoved(object sender, TouchEventArgs args)
+        {
+            byte key = (byte)args.TouchDevice.GetTagData().Value;
+            if (this.tagDict.ContainsKey(key))
+            {
+                tagDict.Remove(key);
+            }
+        }
+
+        private String[] inCompKeys(byte b)
+        {
+            int count = 0;
+            foreach (String key in compViz.Keys)
+            {
+                if (key.Contains(b.ToString()))
+                    count++;
+            }
+            if (count == 0)
+                return null;
+
+            String[] result = new String[count];
+            int i = 0;
+            foreach (String key in compViz.Keys)
+            {
+                if (key.Contains(b.ToString()))
+                {
+                    result[i++] = key;
+                }
+            }
+            return result;
         }
     }
 }
