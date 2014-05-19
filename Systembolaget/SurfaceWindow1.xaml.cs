@@ -124,6 +124,13 @@ namespace Systembolaget
                 tagDict.Add(key, value);
             }
 
+            // Make new compounds if possible
+
+            // Compound keys are of the form "3x4"
+
+            // Remove single viz's if applicable
+
+            // Make/move single viz otherwise
 
         }
 
@@ -134,6 +141,12 @@ namespace Systembolaget
             {
                 tagDict.Remove(key);
             }
+
+            // Remove compounds the key was used for
+
+            // Remove single if applicable
+
+            // Make new singles from tags without viz
         }
 
         private String[] inCompKeys(byte b)
