@@ -59,6 +59,7 @@ namespace Systembolaget
 
         private TransformedBitmap getTransformedBitmap(BitmapImage bi, double angle)
         {
+            angle = 90 * (Math.Floor(angle / 90));
             TransformedBitmap tb = new TransformedBitmap();
             tb.BeginInit();
             tb.Source = bi;
