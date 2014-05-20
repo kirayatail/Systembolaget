@@ -11,10 +11,10 @@
     Height="1080"
     >
 
-    <Canvas x:Name="can" Canvas.Top="0" Canvas.Left="0" Height="1080" Width="1920"
+    <Canvas x:Name="can" Canvas.Top="0" Canvas.Left="0"
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
             TouchUp="tagRemoved">
-        	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
+        	<Image Margin="0,0,0,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
     </Canvas>
 </s:SurfaceWindow>
