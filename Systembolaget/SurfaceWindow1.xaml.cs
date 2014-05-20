@@ -57,7 +57,7 @@ namespace Systembolaget
             return bi;
         }
 
-        private TransformedBitmap getTransformedBitmap(BitmapImage bi, int angle)
+        private TransformedBitmap getTransformedBitmap(BitmapImage bi, double angle)
         {
             TransformedBitmap tb = new TransformedBitmap();
             tb.BeginInit();
@@ -342,7 +342,7 @@ namespace Systembolaget
             Console.WriteLine("Creating viz with path: " + path);
             Image img = new Image();
 
-            img.Source = createBitmap(path);
+            img.Source = getTransformedBitmap(createBitmap(path), orientation);
             img.Height = 300;
             img.Width = 400;
             img.Tag = tagValue;
