@@ -38,8 +38,6 @@ C:\Users\Danne\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembola
 C:\Users\Danne\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.g.resources
 C:\Users\Danne\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.Properties.Resources.resources
 C:\Users\Danne\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.csproj.GenerateResource.Cache
-C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.exe
-C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.pdb
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\bin\Debug\Resources\icon.png
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\bin\Debug\Systembolaget.xml
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\bin\Debug\Systembolaget.exe
@@ -58,3 +56,5 @@ C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembol
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.g.resources
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.Properties.Resources.resources
 C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.csproj.GenerateResource.Cache
+C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.exe
+C:\Users\Group1\Documents\GitHub\Systembolaget\Systembolaget\obj\Debug\Systembolaget.pdb

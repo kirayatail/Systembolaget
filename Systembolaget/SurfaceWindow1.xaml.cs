@@ -339,13 +339,13 @@ namespace Systembolaget
 
             if (tagValue.Equals("20"))
             {
-                path = "Resources/productInfo.png";
+                path = "Resources/productInfo2.png";
             }
-            else if (tagValue.Equals("48"))
+            else if (tagValue.Equals("7"))
             {
-                path = "Resources/productInfo.png";
+                path = "Resources/productInfo2.png";
             }
-            else if (tagValue.Equals("20x48"))
+            else if (tagValue.Equals("7x20"))
             {
                 path = "Resources/combineInfo.png";
             }

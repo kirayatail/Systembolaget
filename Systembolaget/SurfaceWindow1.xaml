@@ -15,6 +15,6 @@
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
             TouchUp="tagRemoved">
-        	<Image Margin="0,0,0,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
+        	<Image Margin="0,0,0,0" Source="Resources/BigBkgrndTabletop.png" Stretch="Fill"/>
     </Canvas>
 </s:SurfaceWindow>
