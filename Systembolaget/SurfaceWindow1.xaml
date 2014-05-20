@@ -10,26 +10,7 @@
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
             TouchUp="tagRemoved">
-            <s:TagVisualizer.Definitions>
-                <s:TagVisualizationDefinition Source="wineBottle.xaml"
-                                              PhysicalCenterOffsetFromTag="0,1"
-                                              LostTagTimeout="1000"
-                                              MaxCount="5"
-                                              TagRemovedBehavior="Fade"
-                                              Value="0x7">
-                </s:TagVisualizationDefinition>
-                
-                <s:TagVisualizationDefinition Source="wineBottle2.xaml"
-                                              PhysicalCenterOffsetFromTag="0,1"
-                                              LostTagTimeout="1000"
-                                              MaxCount="5"
-                                              TagRemovedBehavior="Fade"
-                                              Value="0x3">
-                </s:TagVisualizationDefinition>
-            </s:TagVisualizer.Definitions>
         	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
         </s:TagVisualizer>
-        <Button Canvas.Left="920" Canvas.Top="140" Content="Destroy" Height="130" Name="button1" Width="220" DataContext="{Binding}" Click="button1_Click" />
-        <Button Canvas.Left="230" Canvas.Top="140" Content="Button" Height="130" Name="button2" Width="223" Click="button2_Click" />
     </Canvas>
 </s:SurfaceWindow>

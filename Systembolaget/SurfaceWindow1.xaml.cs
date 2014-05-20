@@ -29,7 +29,7 @@ namespace Systembolaget
         Dictionary<Byte, Image> singleViz;
         
         // Limit for making comparison
-        float distanceLimit = 50.0f;
+        double distanceLimit = 50.0;
 
         /// <summary>
         /// Default constructor.
@@ -43,8 +43,8 @@ namespace Systembolaget
             
 
             tagDict = new Dictionary<byte,Point>();
-            compViz = new Dictionary<string, object>();
-            singleViz = new Dictionary<byte, object>();
+            compViz = new Dictionary<String, Image>();
+            singleViz = new Dictionary<byte, Image>();
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -130,14 +130,86 @@ namespace Systembolaget
                 tagDict.Add(key, value);
             }
 
-            // Make new compounds if possible
+            if(this.singleViz.ContainsKey(key))
+            {
+                removeVisualization(singleViz[key]);
+                singleViz.Remove(key);
+            }
 
-            // Compound keys are of the form "3x4"
+
+            // Remove all compounds
+            String[] compKeys = inCompKeys(key);
+            if (compKeys != null)
+            {
+                for (int i = 0; i < compKeys.Length; i++)
+                {
+                    removeVisualization(this.compViz[compKeys[i]]);
+                    this.compViz.Remove(compKeys[i]);
+                }
+            }
+
+            // Make new compounds if possible
+            foreach (byte other in tagDict.Keys)
+            {
+                if (key != other && (distance(key, other) <=this.distanceLimit))
+                {
+                    String compKey = makeCompKey(key, other);
+                    Image img = createVisualization(compKey, midPoint(key, other));
+                    this.compViz.Add(compKey, img);
+                }
+            }
+            
 
             // Remove single viz's if applicable
+            foreach (byte single in this.singleViz.Keys)
+            {
+                if (inCompKeys(single) != null)
+                {
+                    removeVisualization(this.singleViz[single]);
+                    this.singleViz.Remove(single);
+                }
+            }
 
             // Make/move single viz otherwise
+            foreach (byte tag in this.tagDict.Keys)
+            {
+                if (inCompKeys(tag) == null && !this.singleViz.ContainsKey(tag))
+                {
+                    Image img = createVisualization(tag, tagDict[tag]);
+                    this.singleViz.Add(tag, img);
+                }
+            }
 
+        }
+
+        private String makeCompKey(byte tagA, byte tagB)
+        {
+            // Compound keys are of the form "3x4"
+            // Numbers always in ascending order
+            if (tagA > tagB)
+            {
+                return tagB + "x" + tagA;
+            }
+            else
+            {
+                return tagA + "x" + tagB;
+            }
+        }
+
+        private Point midPoint(byte tagA, byte tagB)
+        {
+            Point result = new Point(0,0);
+            result.X = (tagDict[tagA].X + tagDict[tagB].X) / 2;
+            result.Y = (tagDict[tagA].Y + tagDict[tagB].Y) / 2;
+
+            return result;
+        }
+
+        private double distance(byte tagA, byte tagB)
+        {
+            Vector diff = Point.Subtract(tagDict[tagA], tagDict[tagB]);
+
+            return diff.Length;
         }
 
         private void tagRemoved(object sender, TouchEventArgs args)
@@ -232,20 +304,6 @@ namespace Systembolaget
         private void removeVisualization(Image img)
         {
             this.can.Children.Remove(img);
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            Image img = createVisualization(1, new Point(200, 300));
-            this.singleViz.Add(1, img);
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            // Destroyer
-            Image img = (Image)this.singleViz[1];
-            this.singleViz.Remove(1);
-            removeVisualization(img);
         }
     }
 }
