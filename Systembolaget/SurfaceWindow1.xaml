@@ -4,8 +4,8 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="Systembolaget"
     >
+
     <Canvas x:Name="can" Canvas.Top="140" Canvas.Left="220" Height="900" Width="1377">
-        
         <s:TagVisualizer
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"

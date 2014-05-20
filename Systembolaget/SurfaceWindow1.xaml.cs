@@ -9,6 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Surface;
@@ -38,16 +39,30 @@ namespace Systembolaget
         {
             InitializeComponent();
 
-
-            //Creates the image  for the visualization
-            
-
             tagDict = new Dictionary<byte,Point>();
             compViz = new Dictionary<String, Image>();
             singleViz = new Dictionary<byte, Image>();
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
+        }
+
+        private BitmapImage createBitmap(String path) {
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(path, UriKind.RelativeOrAbsolute);
+            bi.EndInit();
+            return bi;
+        }
+
+        private TransformedBitmap getTransformedBitmap(BitmapImage bi, int angle)
+        {
+            TransformedBitmap tb = new TransformedBitmap();
+            tb.BeginInit();
+            tb.Source = bi;
+            tb.Transform = new RotateTransform(angle);
+            tb.EndInit();
+            return tb;
         }
 
         /// <summary>
@@ -279,10 +294,8 @@ namespace Systembolaget
         private Image createVisualization(String tagValue, Point pos)
         {
             Image img = new Image();
-            BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new Uri("/Resources/combineInfo.png", UriKind.Relative);
-            img.Source = b;
+
+            img.Source = createBitmap("Resources/combineInfo.png");
             img.Height = 500;
             img.Width = 600;
             img.Tag = tagValue;
@@ -292,7 +305,6 @@ namespace Systembolaget
             Canvas.SetTop(img, pos.Y);
 
             can.Children.Add(img);
-            b.EndInit();
 
             return img;
         }
