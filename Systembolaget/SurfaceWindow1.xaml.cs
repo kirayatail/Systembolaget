@@ -343,16 +343,18 @@ namespace Systembolaget
             Console.WriteLine("Creating viz with path: " + path);
             Image img = new Image();
 
-            double angle = 90 * (Math.Floor(orientation / 90));
+            // double angle = 90 * (Math.Floor(orientation / 90));
 
-            img.Source = getTransformedBitmap(createBitmap(path), angle);
+            img.Source = createBitmap(path);
+            RotateTransform rt = new RotateTransform(orientation);
+            img.RenderTransform = rt;
             img.Height = 300;
             img.Width = 400;
             img.Tag = tagValue;
 
             Point rotationVec = new Point(-200, -300);
             Matrix m = Matrix.Identity;
-            m.Rotate(angle);
+            m.Rotate(orientation);
             rotationVec = m.Transform(rotationVec);
 
             Canvas.SetLeft(img, pos.X+rotationVec.X);
