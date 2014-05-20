@@ -262,6 +262,7 @@ namespace Systembolaget
             if (this.tagDict.ContainsKey(key))
             {
                 tagDict.Remove(key);
+                oriDict.Remove(key);
             }
 
             // Remove compounds the key was used for
