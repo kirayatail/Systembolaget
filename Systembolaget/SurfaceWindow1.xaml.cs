@@ -26,11 +26,8 @@ namespace Systembolaget
     {
 
         Dictionary<Byte,Point> tagDict;
-        Dictionary<String, object> compViz;
-        Dictionary<Byte, object> singleViz;
-        private String singleTable = "/Resources/singleTable.png";
-        private String prodInfo = "/Resources/productInfo.png";
-
+        Dictionary<String, Image> compViz;
+        Dictionary<Byte, Image> singleViz;
         
         // Limit for making comparison
         float distanceLimit = 50.0f;
@@ -41,23 +38,13 @@ namespace Systembolaget
         public SurfaceWindow1()
         {
             InitializeComponent();
+
             tagDict = new Dictionary<byte,Point>();
-            compViz = new Dictionary<string, object>();
-            singleViz = new Dictionary<byte, object>();
+            compViz = new Dictionary<string, Image>();
+            singleViz = new Dictionary<byte, Image>();
+
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
-
-            Image image = new Image();
-            image.Width = 500;
-            image.Height = 500;
-            image.Source = createBitmap(singleTable);
-
-            Canvas.SetLeft(image, 10);
-            Canvas.SetTop(image, 10);
-
-            MainCanvas.Children.Add(image);
-
-
         }
 
         private BitmapImage createBitmap(String path) {
@@ -177,10 +164,36 @@ namespace Systembolaget
             }
 
             // Remove compounds the key was used for
+            String[] compKeys = inCompKeys(key);
+            Image img = null;
+            if (compKeys != null)
+            {
+                
+                for (int i = 0; i < compKeys.Length; i++)
+                {
+                    img = this.compViz[compKeys[i]];
+                    removeVisualization(img);
+                    this.compViz.Remove(compKeys[i]);
+                }
+            }
 
             // Remove single if applicable
+            if (this.singleViz.ContainsKey(key))
+            {
+                img = this.singleViz[key];
+                removeVisualization(img);
+                this.singleViz.Remove(key);
+            }
 
             // Make new singles from tags without viz
+            foreach (byte tag in this.tagDict.Keys)
+            {
+                if (inCompKeys(tag) == null && !this.singleViz.ContainsKey(tag))
+                {
+                    img = createVisualization(tag, tagDict[tag]);
+                    this.singleViz.Add(tag, img);
+                }
+            }
         }
 
         private String[] inCompKeys(byte b)
@@ -204,6 +217,50 @@ namespace Systembolaget
                 }
             }
             return result;
+        }
+
+        private Image createVisualization(String tagValue, Point pos)
+        {
+            Image img = new Image();
+            BitmapImage b = new BitmapImage();
+            b.BeginInit();
+            b.UriSource = new Uri("/Resources/combineInfo.png", UriKind.Relative);
+            img.Source = b;
+            img.Height = 500;
+            img.Width = 600;
+            img.Tag = tagValue;
+
+
+            Canvas.SetLeft(img, pos.X);
+            Canvas.SetTop(img, pos.Y);
+
+            can.Children.Add(img);
+            b.EndInit();
+
+            return img;
+        }
+        private Image createVisualization(byte tagValue, Point pos)
+        {
+            return createVisualization(tagValue.ToString(), pos);
+        }
+
+        private void removeVisualization(Image img)
+        {
+            this.can.Children.Remove(img);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Image img = createVisualization(1, new Point(200, 300));
+            this.singleViz.Add(1, img);
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            // Destroyer
+            Image img = (Image)this.singleViz[1];
+            this.singleViz.Remove(1);
+            removeVisualization(img);
         }
     }
 }

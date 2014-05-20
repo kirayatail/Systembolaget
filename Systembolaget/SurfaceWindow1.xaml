@@ -4,7 +4,8 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="Systembolaget"
     >
-  <Canvas x:Name="MainCanvas">
+
+    <Canvas x:Name="can" Canvas.Top="140" Canvas.Left="220" Height="900" Width="1377">
         <s:TagVisualizer
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
@@ -28,5 +29,7 @@
             </s:TagVisualizer.Definitions>
         	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
         </s:TagVisualizer>
+        <Button Canvas.Left="920" Canvas.Top="140" Content="Destroy" Height="130" Name="button1" Width="220" DataContext="{Binding}" Click="button1_Click" />
+        <Button Canvas.Left="230" Canvas.Top="140" Content="Button" Height="130" Name="button2" Width="223" Click="button2_Click" />
     </Canvas>
 </s:SurfaceWindow>

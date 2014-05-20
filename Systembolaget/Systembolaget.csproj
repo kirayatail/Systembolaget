@@ -114,13 +114,16 @@
     <Resource Include="Resources\bkgrndTabletop.png" />
     <Resource Include="Resources\combinedTabletop.png" />
     <None Include="Resources\combineInfo.png" />
+    <Resource Include="Resources\combineInfo.png" />
     <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\singleTable.png" />
     <None Include="Resources\productInfo.png" />
+    <Resource Include="Resources\productInfo.png" />
     <Content Include="Systembolaget.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
