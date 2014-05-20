@@ -30,7 +30,7 @@ namespace Systembolaget
         Dictionary<Byte, Image> singleViz;
         
         // Limit for making comparison
-        double distanceLimit = 50.0;
+        double distanceLimit = 250.0;
 
         /// <summary>
         /// Default constructor.
@@ -293,6 +293,19 @@ namespace Systembolaget
 
         private Image createVisualization(String tagValue, Point pos)
         {
+            String path = "";
+
+            if (tagValue.Equals("30"))
+            {
+                path = "Resources/productInfo.png";
+            }
+            else if (tagValue.Equals("0x30"))
+            {
+                path = "Resources/combineInfo.png";
+            }
+            else
+                return null;
+
             Image img = new Image();
 
             img.Source = createBitmap("Resources/combineInfo.png");
@@ -315,6 +328,7 @@ namespace Systembolaget
 
         private void removeVisualization(Image img)
         {
+            if(img != null)
             this.can.Children.Remove(img);
         }
     }
