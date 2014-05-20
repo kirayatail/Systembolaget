@@ -176,7 +176,8 @@ namespace Systembolaget
             
 
             // Remove single viz's if applicable
-            foreach (byte single in this.singleViz.Keys)
+            Dictionary<byte, Image>.KeyCollection singleKeys = this.singleViz.Keys;
+            foreach (byte single in singleKeys)
             {
                 if (inCompKeys(single) != null)
                 {
