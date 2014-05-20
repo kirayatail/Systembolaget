@@ -31,7 +31,7 @@ namespace Systembolaget
         Dictionary<Byte, Image> singleViz;
         
         // Limit for making comparison
-        double distanceLimit = 250.0;
+        double distanceLimit = 400.0;
 
         /// <summary>
         /// Default constructor.
@@ -215,8 +215,20 @@ namespace Systembolaget
 
         private double twoPointOrientation(byte key, byte other)
         {
-            Vector reference = new Vector(0,-1);
-            Vector result = Point.Subtract(tagDict[key], tagDict[other]);
+            byte a; byte b;
+
+            if (key > other)
+            {
+                a = key;
+                b = other;
+            }
+            else
+            {
+                a = other;
+                b = key;
+            }
+            Vector reference = new Vector(1,0);
+            Vector result = Point.Subtract(tagDict[a], tagDict[b]);
             return Vector.AngleBetween(reference, result);
         }
 
@@ -352,7 +364,7 @@ namespace Systembolaget
             img.Width = 400;
             img.Tag = tagValue;
 
-            Point rotationVec = new Point(-200, -300);
+            Point rotationVec = new Point(-200, -350);
             Matrix m = Matrix.Identity;
             m.Rotate(orientation);
             rotationVec = m.Transform(rotationVec);
