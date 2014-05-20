@@ -133,9 +133,16 @@ namespace Systembolaget
 
         private void tagUpdate(object sender, TouchEventArgs args)
         {
+            
             byte key = (byte)args.TouchDevice.GetTagData().Value;
+            // discarding 0 as it's probably invalid.
+            if (key == 0)
+                return;
+
+
             Point value = new Point();
             value = args.TouchDevice.GetPosition(this);
+            Console.WriteLine("Updating tag with value " + key + " and position X:" + value.X + " Y:" + value.Y);
             if (this.tagDict.ContainsKey(key))
             {
                 tagDict[key] = value;
@@ -169,6 +176,7 @@ namespace Systembolaget
                 if (key != other && (distance(key, other) <=this.distanceLimit))
                 {
                     String compKey = makeCompKey(key, other);
+                    Console.WriteLine("Making a new compound with tag " + compKey);
                     Image img = createVisualization(compKey, midPoint(key, other));
                     this.compViz.Add(compKey, img);
                 }
@@ -176,7 +184,8 @@ namespace Systembolaget
             
 
             // Remove single viz's if applicable
-            Dictionary<byte, Image>.KeyCollection singleKeys = this.singleViz.Keys;
+            byte[] singleKeys = new byte[this.singleViz.Keys.Count];
+            this.singleViz.Keys.CopyTo(singleKeys,0);
             foreach (byte single in singleKeys)
             {
                 if (inCompKeys(single) != null)
@@ -231,6 +240,12 @@ namespace Systembolaget
         private void tagRemoved(object sender, TouchEventArgs args)
         {
             byte key = (byte)args.TouchDevice.GetTagData().Value;
+
+            // Disregard 0
+            if (key == 0)
+                return;
+
+            
             if (this.tagDict.ContainsKey(key))
             {
                 tagDict.Remove(key);
@@ -296,20 +311,21 @@ namespace Systembolaget
         {
             String path = "";
 
-            if (tagValue.Equals("30"))
+            if (tagValue.Equals("20"))
             {
                 path = "Resources/productInfo.png";
             }
-            else if (tagValue.Equals("0x30"))
+            else if (tagValue.Equals("48"))
             {
                 path = "Resources/combineInfo.png";
             }
             else
                 return null;
 
+            Console.WriteLine("Creating viz with path: " + path);
             Image img = new Image();
 
-            img.Source = createBitmap("Resources/combineInfo.png");
+            img.Source = createBitmap(path);
             img.Height = 500;
             img.Width = 600;
             img.Tag = tagValue;

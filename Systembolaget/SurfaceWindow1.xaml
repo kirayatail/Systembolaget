@@ -3,14 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="Systembolaget"
+    WindowStyle="None"
+    ResizeMode="NoResize"  
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    Width="1920"
+    Height="1080"
     >
 
-    <Canvas x:Name="can" Canvas.Top="140" Canvas.Left="220" Height="900" Width="1377">
-        <s:TagVisualizer
+    <Canvas x:Name="can" Canvas.Top="0" Canvas.Left="0" Height="1080" Width="1920"
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
             TouchUp="tagRemoved">
         	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
-        </s:TagVisualizer>
     </Canvas>
 </s:SurfaceWindow>
