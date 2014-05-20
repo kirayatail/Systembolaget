@@ -59,7 +59,6 @@ namespace Systembolaget
 
         private TransformedBitmap getTransformedBitmap(BitmapImage bi, double angle)
         {
-            angle = 90 * (Math.Floor(angle / 90));
             TransformedBitmap tb = new TransformedBitmap();
             tb.BeginInit();
             tb.Source = bi;
@@ -344,14 +343,16 @@ namespace Systembolaget
             Console.WriteLine("Creating viz with path: " + path);
             Image img = new Image();
 
-            img.Source = getTransformedBitmap(createBitmap(path), orientation);
+            double angle = 90 * (Math.Floor(orientation / 90));
+
+            img.Source = getTransformedBitmap(createBitmap(path), angle);
             img.Height = 300;
             img.Width = 400;
             img.Tag = tagValue;
 
             Point rotationVec = new Point(-200, -300);
             Matrix m = Matrix.Identity;
-            m.Rotate(orientation);
+            m.Rotate(angle);
             rotationVec = m.Transform(rotationVec);
 
             Canvas.SetLeft(img, pos.X+rotationVec.X);
