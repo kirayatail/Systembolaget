@@ -37,9 +37,27 @@ namespace Systembolaget
         public SurfaceWindow1()
         {
             InitializeComponent();
+
+
+            //Creates the image  for the visualization
+            Image img = new Image();
+            BitmapImage b = new BitmapImage();
+            b.BeginInit();
+            b.UriSource = new Uri("/Resources/combineInfo.png", UriKind.Relative);
+            img.Source = b;
+            img.Height = 500;
+            img.Width = 600;
+
+            Canvas.SetLeft(img, 300);
+            Canvas.SetTop(img, 200);
+            can.Children.Add(img);
+            b.EndInit();
+
+
             tagDict = new Dictionary<byte,Point>();
             compViz = new Dictionary<string, object>();
             singleViz = new Dictionary<byte, object>();
+
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
         }

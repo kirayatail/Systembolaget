@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -112,12 +113,15 @@
   <ItemGroup>
     <Resource Include="Resources\bkgrndTabletop.png" />
     <Resource Include="Resources\combinedTabletop.png" />
+    <Resource Include="Resources\combineInfo.png" />
     <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\singleTable.png" />
+    <Resource Include="Resources\productInfo.png" />
     <Content Include="Systembolaget.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
