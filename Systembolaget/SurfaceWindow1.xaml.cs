@@ -9,6 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Surface;
@@ -27,6 +28,9 @@ namespace Systembolaget
         Dictionary<Byte,Point> tagDict;
         Dictionary<String, object> compViz;
         Dictionary<Byte, object> singleViz;
+        private String singleTable = "/Resources/singleTable.png";
+        private String prodInfo = "/Resources/productInfo.png";
+
         
         // Limit for making comparison
         float distanceLimit = 50.0f;
@@ -42,6 +46,36 @@ namespace Systembolaget
             singleViz = new Dictionary<byte, object>();
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
+
+            Image image = new Image();
+            image.Width = 500;
+            image.Height = 500;
+            image.Source = createBitmap(singleTable);
+
+            Canvas.SetLeft(image, 10);
+            Canvas.SetTop(image, 10);
+
+            MainCanvas.Children.Add(image);
+
+
+        }
+
+        private BitmapImage createBitmap(String path) {
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(path, UriKind.RelativeOrAbsolute);
+            bi.EndInit();
+            return bi;
+        }
+
+        private TransformedBitmap getTransformedBitmap(BitmapImage bi, int angle)
+        {
+            TransformedBitmap tb = new TransformedBitmap();
+            tb.BeginInit();
+            tb.Source = bi;
+            tb.Transform = new RotateTransform(90);
+            tb.EndInit();
+            return tb;
         }
 
         /// <summary>

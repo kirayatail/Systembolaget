@@ -4,7 +4,7 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="Systembolaget"
     >
-  <Grid>
+  <Canvas x:Name="MainCanvas">
         <s:TagVisualizer
             TouchDown="tagUpdate"
             TouchMove="tagUpdate"
@@ -28,5 +28,5 @@
             </s:TagVisualizer.Definitions>
         	<Image Margin="0,0,-21.491,0" Source="Resources/bkgrndTabletop.png" Stretch="Fill"/>
         </s:TagVisualizer>
-    </Grid>
+    </Canvas>
 </s:SurfaceWindow>
