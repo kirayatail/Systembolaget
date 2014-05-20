@@ -26,6 +26,7 @@ namespace Systembolaget
     {
 
         Dictionary<Byte,Point> tagDict;
+        Dictionary<Byte, Double> oriDict;
         Dictionary<String, Image> compViz;
         Dictionary<Byte, Image> singleViz;
         
@@ -40,6 +41,7 @@ namespace Systembolaget
             InitializeComponent();
 
             tagDict = new Dictionary<byte,Point>();
+            oriDict = new Dictionary<byte, double>();
             compViz = new Dictionary<String, Image>();
             singleViz = new Dictionary<byte, Image>();
 
@@ -141,15 +143,19 @@ namespace Systembolaget
 
 
             Point value = new Point();
+            double orientation = 0;
             value = args.TouchDevice.GetPosition(this);
+            orientation = args.TouchDevice.GetOrientation(this);
             Console.WriteLine("Updating tag with value " + key + " and position X:" + value.X + " Y:" + value.Y);
             if (this.tagDict.ContainsKey(key))
             {
                 tagDict[key] = value;
+                oriDict[key] = orientation;
             }
             else
             {
                 tagDict.Add(key, value);
+                oriDict.Add(key, orientation);
             }
 
             if(this.singleViz.ContainsKey(key))
@@ -177,7 +183,7 @@ namespace Systembolaget
                 {
                     String compKey = makeCompKey(key, other);
                     Console.WriteLine("Making a new compound with tag " + compKey);
-                    Image img = createVisualization(compKey, midPoint(key, other));
+                    Image img = createVisualization(compKey, midPoint(key, other), twoPointOrientation(key,other));
                     this.compViz.Add(compKey, img);
                 }
             }
@@ -200,11 +206,18 @@ namespace Systembolaget
             {
                 if (inCompKeys(tag) == null && !this.singleViz.ContainsKey(tag))
                 {
-                    Image img = createVisualization(tag, tagDict[tag]);
+                    Image img = createVisualization(tag, tagDict[tag], oriDict[tag]);
                     this.singleViz.Add(tag, img);
                 }
             }
 
+        }
+
+        private double twoPointOrientation(byte key, byte other)
+        {
+            Vector reference = new Vector(0,-1);
+            Vector result = Point.Subtract(tagDict[key], tagDict[other]);
+            return Vector.AngleBetween(reference, result);
         }
 
         private String makeCompKey(byte tagA, byte tagB)
@@ -278,7 +291,7 @@ namespace Systembolaget
             {
                 if (inCompKeys(tag) == null && !this.singleViz.ContainsKey(tag))
                 {
-                    img = createVisualization(tag, tagDict[tag]);
+                    img = createVisualization(tag, tagDict[tag], oriDict[tag]);
                     this.singleViz.Add(tag, img);
                 }
             }
@@ -307,7 +320,7 @@ namespace Systembolaget
             return result;
         }
 
-        private Image createVisualization(String tagValue, Point pos)
+        private Image createVisualization(String tagValue, Point pos, double orientation)
         {
             String path = "";
 
@@ -316,6 +329,10 @@ namespace Systembolaget
                 path = "Resources/productInfo.png";
             }
             else if (tagValue.Equals("48"))
+            {
+                path = "Resources/productInfo.png";
+            }
+            else if (tagValue.Equals("20x48"))
             {
                 path = "Resources/combineInfo.png";
             }
@@ -326,21 +343,25 @@ namespace Systembolaget
             Image img = new Image();
 
             img.Source = createBitmap(path);
-            img.Height = 500;
-            img.Width = 600;
+            img.Height = 300;
+            img.Width = 400;
             img.Tag = tagValue;
 
+            Point rotationVec = new Point(-200, -300);
+            Matrix m = Matrix.Identity;
+            m.Rotate(orientation);
+            rotationVec = m.Transform(rotationVec);
 
-            Canvas.SetLeft(img, pos.X);
-            Canvas.SetTop(img, pos.Y);
+            Canvas.SetLeft(img, pos.X+rotationVec.X);
+            Canvas.SetTop(img, pos.Y+rotationVec.Y);
 
             can.Children.Add(img);
 
             return img;
         }
-        private Image createVisualization(byte tagValue, Point pos)
+        private Image createVisualization(byte tagValue, Point pos, double orientation)
         {
-            return createVisualization(tagValue.ToString(), pos);
+            return createVisualization(tagValue.ToString(), pos, orientation);
         }
 
         private void removeVisualization(Image img)
