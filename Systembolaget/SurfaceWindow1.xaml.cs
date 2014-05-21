@@ -337,15 +337,15 @@ namespace Systembolaget
         {
             String path = "";
 
-            if (tagValue.Equals("20"))
+            if (tagValue.Equals("196"))
             {
                 path = "Resources/productInfo2.png";
             }
-            else if (tagValue.Equals("7"))
+            else if (tagValue.Equals("148"))
             {
                 path = "Resources/productInfo2.png";
             }
-            else if (tagValue.Equals("7x20"))
+            else if (tagValue.Equals("148x196"))
             {
                 path = "Resources/combineInfo.png";
             }
